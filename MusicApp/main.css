@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather&family=Noto+Serif+JP&family=Source+Serif+Pro:ital,wght@1,200&display=swap');
+*,
+*::before,
+* ::after {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 63%;
+    font-family: 'Lobster', cursive;;
+}
+
+.main_div {
+width: 100vw;
+height: 100vh;
+background-color: #f6f6f6;
+display: flex;
+place-items: center;
+justify-content: center;
+}
+
+.music_container {
+    width: 39rem;
+    height: 69rem;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    box-shadow: 0 1.9rem 4rem 0.7rem rgba(0,0,0,0.3);
+    padding: 3rem;
+    text-align: center;
+}
+
+.music_container #title {
+    font-family: 'Merriweather', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    word-spacing: 0.6rem;
+    color: rgb(39, 147, 167);
+    margin: 4rem 0 0.4rem 0;
+    font-size: 2.6rem;
+    text-shadow: 0 0.3rem 0.5rem rgba(0,0,0,0.3);
+}
+
+.music_container #artist{
+    color: #cccaca;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
+}
+
+.music_controls{
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 5rem;
+}
+.img_container {
+    width: 25rem;
+    height: 25rem;
+    margin:  5rem 3rem 5rem 3rem;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    box-shadow: 0 1.3rem 3rem 0.5rem rgba(0,0,0,0.4);
+}
+.music_controls .fas {
+    color: #111111;
+    font-size: 2rem;
+    cursor: pointer;
+    filter: drop-shadow(0 1.2rem 3rem 0.5rem rgba(0,0,0,0.4));
+}
+
+.music_container .main-button {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: #111;
+    color: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.music_controls .fas:hover {
+ color: grey;
+}
+.music_controls .fa-play-circle:hover{
+    background-color: #f6f6f6;
+    color: #111;
+    box-shadow: 0 1rem 2rem 0.2rem rgba(0,0,0,0.4);
+}
+
+.anime {
+    animation: rotatePlayer 60s linear infinite;
+}
+
+@keyframes rotatePlayer{
+    from{
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

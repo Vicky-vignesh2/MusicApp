@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicky's</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+    
+    <div class="main_div">
+        <div class="music_container">
+            <h2 id="title">Bodhai Kaname</h2>
+            <h3 id="artist">Vishal Chandrasekar</h3>
+            <div class="img_container">
+                <img src="asserts/oh manapenne.jpg" alt=" NOT " />
+            </div>
+            <audio src="music/Bodhai Kaname.mp3" controls></audio>
+
+            <!---- controls -->
+            <div class="music_controls">
+                <i class="fas fa-step-backward" id="back" title="Back"></i>
+                <i class="fas fa-play-circle main-button" id="play" title="Play"></i>
+                <i class="fas fa-step-forward" id="next" title="Next"></i>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const music = document.querySelector("audio");
+    const img = document.querySelector("img");
+    const play = document.getElementById("play");
+    const artist = document.getElementById("artist");
+    const title = document.getElementById("title");
+    const back = document.getElementById("back");
+    const next = document.getElementById("next");
+
+    const song = [{
+        name:"Bodhai Kaname",
+        title:"Bodhai Kaname",
+        artist:"Vishal Chandrasekar",
+        img:"oh manapenne",
+    },{
+        name:"Meherezylaa",
+        title:"Meherezylaa",
+        artist:"Yuvan Shankar Raja",
+        img:"maanadu",
+    },{
+        name:"Vethayala Pottendi",
+        title:"Vethayala",
+        artist:"Yuvan Shankar Raja",
+        img:"Billa",
+    },{
+        name:"Konjum Kili",
+        title:"Konjum Kili",
+        artist:"Yuvan Shankar Raja",
+        img:"Kedi billa kelladi ranga",
+    },{
+        name:"Machi Open The Bottle",
+        title:"Machi Open",
+        artist:"Yuvan Shankar Raja",
+        img:"Mangatha",
+    },
+    {
+        name:'Idhu Varai',
+        title:"Idhu Varai",
+        artist:"Yuvan Shankar Raja",
+        img:"Goa"
+    },{
+        name:"m2",
+        title:"Veyyon Silli",
+        artist:"GV Prakash",
+        img:"im2",
+    },
+];
+      
+    let isplay = false;
+  // for play
+    const playMusic = () => {
+        music.play();
+        isplay = true;
+        play.classList.replace('fa-play-circle','fa-pause');
+        img.classList.add("anime");
+    };
+// for pause
+    const pauseMusic = () => {
+        music.pause();
+        isplay = false;
+        play.classList.replace('fa-pause','fa-play-circle');
+        img.classList.remove("anime");
+    };
+
+    play.addEventListener('click', () => {
+        isplay ? pauseMusic() : playMusic() ;
+    });
+    const loadSong = (song) =>{
+        title.textContent=song.title;
+        artist.textContent=song.artist;
+        music.src="music/"+song.name+".mp3";
+        img.src="asserts/"+song.img+".jpg";
+    };
+    songIndex = 0;
+
+    const nextSong = () =>{
+        songIndex = (songIndex + 1)%song.length;
+        loadSong(song[songIndex]);
+        playMusic();
+    }
+
+    const prevSong = () =>{
+        songIndex = (songIndex - 1)%song.length;
+        loadSong(song[songIndex]);
+        playMusic();
+    }
+
+    next.addEventListener('click',nextSong);
+    back.addEventListener('click',prevSong);
+
+</script>
+</html>
